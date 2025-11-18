@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { EmployeesTable } from './components/EmployeesTable';
-import { getAllEmployeesWithTasks } from '@/lib/db/employees';
+import { getAllEmployeesWithTasks, EmployeeWithTasks } from '@/lib/db/employees';
 import { SearchBar } from '../components/SearchBar';
 
 export const dynamic = 'force-dynamic';
@@ -11,7 +11,7 @@ async function getEmployees() {
     return employees;
   } catch (error) {
     console.error('Error fetching employees:', error);
-    return [];
+    return [] as EmployeeWithTasks[];
   }
 }
 
@@ -20,7 +20,7 @@ async function EmployeesContent({ query }: { query: string }) {
   
   // Server-side filtering
   const employees = query
-    ? allEmployees.filter(emp => 
+    ? allEmployees.filter((emp: EmployeeWithTasks) => 
         emp.name.toLowerCase().includes(query.toLowerCase()) ||
         emp.email.toLowerCase().includes(query.toLowerCase()) ||
         emp.department?.toLowerCase().includes(query.toLowerCase())

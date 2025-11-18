@@ -25,7 +25,7 @@ async function TemplatesContent({ query }: { query: string }) {
     ? allTemplates.filter((template: TemplateWithTasks) => 
         template.name.toLowerCase().includes(query.toLowerCase()) ||
         template.description?.toLowerCase().includes(query.toLowerCase()) ||
-        template.tasks.some((task) => task.title.toLowerCase().includes(query.toLowerCase()))
+        template.tasks.some((task: TemplateWithTasks['tasks'][number]) => task.title.toLowerCase().includes(query.toLowerCase()))
       )
     : allTemplates;
 

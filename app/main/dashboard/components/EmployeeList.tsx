@@ -8,7 +8,7 @@ async function getEmployees() {
     return employees;
   } catch (error) {
     console.error('Error fetching employees:', error);
-    return [];
+    return [] as EmployeeWithTasks[];
   }
 }
 
@@ -17,11 +17,11 @@ export async function EmployeeList({ query }: { query: string }) {
   
   // Server-side filtering
   const employees = query
-    ? allEmployees.filter(emp => 
+    ? allEmployees.filter((emp: EmployeeWithTasks) => 
         emp.name.toLowerCase().includes(query.toLowerCase()) ||
         emp.email.toLowerCase().includes(query.toLowerCase()) ||
         emp.department?.toLowerCase().includes(query.toLowerCase()) ||
-        emp.tasks.some(task => task.title.toLowerCase().includes(query.toLowerCase()))
+        emp.tasks.some((task) => task.title.toLowerCase().includes(query.toLowerCase()))
       )
     : allEmployees;
 
