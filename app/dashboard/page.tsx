@@ -1,4 +1,5 @@
 import { EmployeeWithTasks } from '@/lib/db/employees';
+import { TaskItem } from './components/TaskItem';
 
 async function getEmployees(): Promise<EmployeeWithTasks[]> {
   const res = await fetch('http://localhost:3000/api/employees', {
@@ -58,18 +59,15 @@ function EmployeeCard({ employee }: { employee: EmployeeWithTasks }) {
         </span>
       </h3>
       
-      {/* TODO: The next step will fill this tasks list with interactive components */}
-      <ul className="list-disc list-inside ml-4">
+      <ul className="space-y-1">
         {employee.tasks.map(task => (
-          <li key={task.id} className={task.isComplete ? "line-through text-gray-400" : "text-gray-800"}>
-            {task.title}
-          </li>
+          <TaskItem key={task.id} task={task} />
         ))}
-        {/* Placeholder for the Task Assignment Form */}
-        <li className="mt-2 text-sm text-gray-500">
-          [Task Assignment Form goes here]
-        </li>
+        {employee.tasks.length === 0 && (
+          <li className="text-sm text-gray-500">No tasks assigned yet</li>
+        )}
       </ul>
+
     </div>
   );
 }
