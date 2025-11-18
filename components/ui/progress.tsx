@@ -10,7 +10,8 @@ interface ProgressProps {
 }
 
 export function Progress({ value, max = 100, className }: ProgressProps) {
-  const percentage = Math.min(Math.max((value / max) * 100, 0), 100);
+  // Handle 0/0 case - when there are no tasks, progress should be 0, not complete
+  const percentage = max === 0 ? 0 : Math.min(Math.max((value / max) * 100, 0), 100);
 
   return (
     <div className={cn('w-full bg-gray-200 rounded-full h-2 overflow-hidden', className)}>
