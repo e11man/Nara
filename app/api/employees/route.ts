@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAllEmployeesWithTasks, createEmployee } from '@/lib/db/employees';
+import { autoAssignDefaultTemplate } from '@/lib/db/templates';
 
 export async function GET() {
   try {
@@ -26,8 +27,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Create the employee
     const employee = await createEmployee({ name, email, department });
-    return NextResponse.json(employee, { status: 201 });
+    
+    // Automatically assign default template tasks (if any)
+    const autoAssignResult = await autoAssignDefaultTemplate(employee.id);
+    
+    return NextResponse.json({
+      employee,
+      autoAssigned: autoAssignResult ? {
+        template: autoAssignResult.template.name,
+        tasksCreated: autoAssignResult.tasksCreated
+      } : null
+    }, { status: 201 });
   } catch (error) {
     console.error('Error creating employee:', error);
     return NextResponse.json(

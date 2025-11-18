@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { AddTaskModal } from './AddTaskModal';
 import { TaskList } from './TaskList';
+import { AddEmployeeModal } from './AddEmployeeModal';
 
 type Employee = {
   id: string;
@@ -17,6 +18,7 @@ export function EmployeesTable({ employees }: { employees: Employee[] }) {
   const [selectedEmployeeId, setSelectedEmployeeId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedEmployeeId, setExpandedEmployeeId] = useState<string | null>(null);
+  const [showAddEmployeeModal, setShowAddEmployeeModal] = useState(false);
 
   const openTaskModal = (employeeId: string) => {
     setSelectedEmployeeId(employeeId);
@@ -34,6 +36,15 @@ export function EmployeesTable({ employees }: { employees: Employee[] }) {
 
   return (
     <>
+      <div className="mb-6">
+        <button
+          onClick={() => setShowAddEmployeeModal(true)}
+          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-medium"
+        >
+          + Add New Employee
+        </button>
+      </div>
+
       <div className="overflow-x-auto bg-white rounded-lg shadow">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
@@ -130,6 +141,12 @@ export function EmployeesTable({ employees }: { employees: Employee[] }) {
         <AddTaskModal
           employeeId={selectedEmployeeId}
           onClose={closeModal}
+        />
+      )}
+
+      {showAddEmployeeModal && (
+        <AddEmployeeModal
+          onClose={() => setShowAddEmployeeModal(false)}
         />
       )}
     </>

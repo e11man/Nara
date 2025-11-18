@@ -79,6 +79,7 @@ model Template {
   id           String         @id @default(cuid())
   name         String
   description  String?
+  isDefault    Boolean        @default(false)
   
   // Relationship to Template Tasks
   tasks        TemplateTask[]
