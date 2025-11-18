@@ -5,6 +5,13 @@ import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
+import { ContainerScroll } from '@/components/ui/container-scroll'
+import Image from 'next/image'
+import DisplayCards from '@/components/ui/display-cards'
+import { Users, CheckCircle, Sparkles, Twitter, Github, Linkedin } from 'lucide-react'
+import CTASection from '@/components/ui/cta-section'
+import { Footer } from '@/components/ui/footer'
+import ContactSection from '@/components/ui/contact-section'
 
 const menuItems = [
     { name: 'Dashboard', href: '/hr/dashboard' },
@@ -91,7 +98,7 @@ export const HeroSection = () => {
                                 <div className="lg:h-[44rem] relative skew-x-[.36rad]">
                                     <img
                                         className="rounded-[--radius] z-[2] relative border"
-                                        src="https://tailark.com/_next/image?url=%2Fcard.png&w=3840&q=75"
+                                        src="/images/hero.png"
                                         alt="InsightHire Dashboard"
                                         width={2880}
                                         height={2074}
@@ -185,7 +192,116 @@ export const HeroSection = () => {
                         </div>
                     </div>
                 </section>
+
+                <section className="bg-white py-20">
+                    <div className="m-auto max-w-5xl px-6">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                                Powerful features for seamless onboarding
+                            </h2>
+                            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+                                From tracking employee progress to automated task assignment, InsightHire helps your HR team work smarter.
+                            </p>
+                        </div>
+                        <div className="flex justify-center">
+                            <DisplayCards 
+                                cards={[
+                                    {
+                                        icon: <Users className="size-4 text-white" />,
+                                        title: "Employee Tracking",
+                                        description: "Monitor onboarding progress",
+                                        date: "Real-time updates",
+                                        titleClassName: "text-blue-600",
+                                        className: "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-gray-200 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-white/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration:700 hover:grayscale-0 before:left-0 before:top-0",
+                                    },
+                                    {
+                                        icon: <CheckCircle className="size-4 text-white" />,
+                                        title: "Smart Templates",
+                                        description: "Reusable task workflows",
+                                        date: "Auto-assign on hire",
+                                        titleClassName: "text-blue-600",
+                                        className: "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-gray-200 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-white/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration:700 hover:grayscale-0 before:left-0 before:top-0",
+                                    },
+                                    {
+                                        icon: <Sparkles className="size-4 text-white" />,
+                                        title: "AI Insights",
+                                        description: "Get intelligent overviews",
+                                        date: "Powered by Gemini",
+                                        titleClassName: "text-blue-600",
+                                        className: "[grid-area:stack] translate-x-32 translate-y-20 hover:translate-y-10",
+                                    },
+                                ]}
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                <section className="bg-white">
+                    <ContainerScroll
+                        titleComponent={
+                            <div className="max-w-3xl mx-auto">
+                                <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                                    Everything you need to onboard faster
+                                </h2>
+                                <p className="text-lg md:text-xl text-gray-700">
+                                    Track progress, assign tasks, and get AI-powered insights all in one place.
+                                </p>
+                            </div>
+                        }
+                    >
+                        <img
+                            src="/images/template_img.png"
+                            alt="InsightHire Dashboard Preview"
+                            className="mx-auto rounded-2xl object-cover h-full object-left-top"
+                            draggable={false}
+                        />
+                    </ContainerScroll>
+                </section>
+
+                <ContactSection />
+
+                <section className="bg-white py-20">
+                    <CTASection />
+                </section>
             </main>
+
+            <Footer
+                logo={<Logo />}
+                brandName="InsightHire"
+                socialLinks={[
+                    {
+                        icon: <Twitter className="h-5 w-5" />,
+                        href: "#",
+                        label: "Twitter"
+                    },
+                    {
+                        icon: <Github className="h-5 w-5" />,
+                        href: "#",
+                        label: "GitHub"
+                    },
+                    {
+                        icon: <Linkedin className="h-5 w-5" />,
+                        href: "#",
+                        label: "LinkedIn"
+                    }
+                ]}
+                mainLinks={[
+                    { href: "/hr/dashboard", label: "Dashboard" },
+                    { href: "/hr/employees", label: "Employees" },
+                    { href: "/hr/templates", label: "Templates" },
+                    { href: "#", label: "Pricing" },
+                    { href: "#", label: "About" }
+                ]}
+                legalLinks={[
+                    { href: "#", label: "Privacy Policy" },
+                    { href: "#", label: "Terms of Service" },
+                    { href: "#", label: "Contact" }
+                ]}
+                copyright={{
+                    text: `© ${new Date().getFullYear()} InsightHire. All rights reserved.`,
+                    license: "Built with Next.js & Supabase"
+                }}
+            />
         </div>
     )
 }
