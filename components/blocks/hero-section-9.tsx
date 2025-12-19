@@ -79,7 +79,7 @@ export const HeroSection = () => {
                 <section className="overflow-hidden bg-white">
                     <div className="relative mx-auto max-w-5xl px-6 py-28 lg:py-24">
                         <div className="relative z-10 mx-auto max-w-2xl text-center">
-                            <h1 className="text-balance text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl">Streamline Your Hiring Process with InsightHire</h1>
+                            <h1 className="text-balance text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl">Streamline Your Hiring Process with Nara</h1>
                             <p className="mx-auto my-8 max-w-2xl text-xl text-gray-700 leading-relaxed">Manage employees, track tasks, and optimize your HR workflow with intelligent templates and actionable insights.</p>
 
                             <Button
@@ -99,7 +99,7 @@ export const HeroSection = () => {
                                     <img
                                         className="rounded-[--radius] z-[2] relative border"
                                         src="/images/hero.png"
-                                        alt="InsightHire Dashboard"
+                                        alt="Nara Dashboard"
                                         width={2880}
                                         height={2074}
                                     />
@@ -200,7 +200,7 @@ export const HeroSection = () => {
                                 Powerful features for seamless onboarding
                             </h2>
                             <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-                                From tracking employee progress to automated task assignment, InsightHire helps your HR team work smarter.
+                                From tracking employee progress to automated task assignment, Nara helps your HR team work smarter.
                             </p>
                         </div>
                         <div className="flex justify-center">
@@ -251,7 +251,7 @@ export const HeroSection = () => {
                     >
                         <img
                             src="/images/template_img.png"
-                            alt="InsightHire Dashboard Preview"
+                            alt="Nara Dashboard Preview"
                             className="mx-auto rounded-2xl object-cover h-full object-left-top"
                             draggable={false}
                         />
@@ -267,7 +267,7 @@ export const HeroSection = () => {
 
             <Footer
                 logo={<Logo />}
-                brandName="InsightHire"
+                brandName="Nara"
                 socialLinks={[
                     {
                         icon: <Twitter className="h-5 w-5" />,
@@ -298,7 +298,7 @@ export const HeroSection = () => {
                     { href: "#", label: "Contact" }
                 ]}
                 copyright={{
-                    text: `© ${new Date().getFullYear()} InsightHire. All rights reserved.`,
+                    text: `© ${new Date().getFullYear()} Nara. All rights reserved.`,
                     license: "Built with Next.js & Supabase"
                 }}
             />
@@ -311,9 +311,9 @@ export const Logo = ({ className }: { className?: string }) => {
     return (
         <div className={cn('flex items-center gap-2', className)}>
             <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-400 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">IH</span>
+                <span className="text-white font-bold text-lg">N</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">InsightHire</span>
+            <span className="text-xl font-bold text-gray-900">Nara</span>
         </div>
     )
 }

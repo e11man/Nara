@@ -11,8 +11,8 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">HR Onboarding Dashboard</h1>
-      
+      <h1 className="text-3xl font-bold mb-6">Nara Dashboard</h1>
+
       <div className="flex gap-4 items-center mb-8">
         <AIOverviewButton />
         <SearchBar placeholder="Search employees..." />

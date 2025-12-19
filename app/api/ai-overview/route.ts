@@ -5,7 +5,7 @@ import { getAllEmployeesWithTasks } from '@/lib/db/employees';
 export async function POST() {
   try {
     const apiKey = process.env.GEMINI_API_KEY;
-    
+
     if (!apiKey) {
       return NextResponse.json(
         { error: 'Gemini API key not configured' },
@@ -34,7 +34,7 @@ export async function POST() {
     }));
 
     // Create AI prompt
-    const prompt = `You are an HR onboarding assistant analyzing employee progress. Here is the current status of all employees:
+    const prompt = `You are Nara, an HR onboarding assistant analyzing employee progress. Here is the current status of all employees:
 
 ${JSON.stringify(employeeData, null, 2)}
 
@@ -58,7 +58,7 @@ Keep the tone professional but friendly. Format your response in clear paragraph
 
   } catch (error: any) {
     console.error('Error generating AI overview:', error);
-    
+
     // Provide more helpful error messages
     if (error?.message?.includes('API key')) {
       return NextResponse.json(
@@ -66,7 +66,7 @@ Keep the tone professional but friendly. Format your response in clear paragraph
         { status: 401 }
       );
     }
-    
+
     return NextResponse.json(
       { error: `Failed to generate AI overview: ${error?.message || 'Unknown error'}` },
       { status: 500 }

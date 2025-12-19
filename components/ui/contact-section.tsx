@@ -15,8 +15,8 @@ export default function ContactSection() {
                     </h2>
                     <p className="text-lg text-gray-700">
                         Or just reach out manually to{" "}
-                        <a href="mailto:support@insighthire.com" className="text-blue-600 hover:underline">
-                            support@insighthire.com
+                        <a href="mailto:support@nara.com" className="text-blue-600 hover:underline">
+                            support@nara.com
                         </a>
                     </p>
                 </div>
@@ -33,11 +33,11 @@ export default function ContactSection() {
                         <p className="text-gray-600 mb-4">
                             Our team can respond in real time.
                         </p>
-                        <a 
-                            href="mailto:support@insighthire.com" 
+                        <a
+                            href="mailto:support@nara.com"
                             className="text-blue-600 hover:text-blue-700 font-medium text-lg hover:underline"
                         >
-                            support@insighthire.com
+                            support@nara.com
                         </a>
                     </div>
 
@@ -52,8 +52,8 @@ export default function ContactSection() {
                         <p className="text-gray-600 mb-4">
                             Visit our location in real life.
                         </p>
-                        <a 
-                            href="https://maps.google.com" 
+                        <a
+                            href="https://maps.google.com"
                             target="_blank"
                             className="text-blue-600 hover:text-blue-700 font-medium text-lg hover:underline"
                         >
@@ -72,8 +72,8 @@ export default function ContactSection() {
                         <p className="text-gray-600 mb-4">
                             Available during working hours.
                         </p>
-                        <a 
-                            href="tel:+12344567789" 
+                        <a
+                            href="tel:+12344567789"
                             className="text-blue-600 hover:text-blue-700 font-medium text-lg hover:underline"
                         >
                             (+1) 234 - 4567 - 789

@@ -1,11 +1,11 @@
 # 📚 COMPREHENSIVE APPLICATION DOCUMENTATION
-## HR Onboarding System - Complete Technical Overview
+## Nara Onboarding System - Complete Technical Overview
 
 ---
 
 ## 🎯 **APPLICATION OVERVIEW**
 
-This is a **Next.js 15** full-stack HR onboarding management system that helps HR teams onboard new employees by managing tasks, creating reusable templates, and providing AI-powered insights.
+This is a **Next.js 15** full-stack HR onboarding management system, Nara, that helps HR teams onboard new employees by managing tasks, creating reusable templates, and providing AI-powered insights.
 
 ### **Core Purpose**
 - Streamline employee onboarding processes

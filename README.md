@@ -1,4 +1,4 @@
-# HR Onboarding Management System
+# Nara Onboarding System
 
 A modern, full-stack HR onboarding platform built with Next.js 15 that streamlines employee onboarding through task management, reusable templates, and AI-powered insights.
 
